@@ -50,7 +50,7 @@ This indicates that Docling is running on the CPU rather than a GPU, which is co
 - **`download_file.py: File exists and is valid`**
 This message shows that Docling checked for required model files, such as **`ch_PP-OCRv4_det_infer.pth`**, and confirmed they already exist locally; these files are pretrained OCR models that are downloaded during the first run and reused afterward, so there is no need to download them again.
 
-- **`**Using ... rapidocr/models/...`**
+- **`Using ... rapidocr/models/...`**
 This means Docling is loading OCR models from the local directory, specifically models responsible for detecting where text appears in the document and then recognizing the actual characters, essentially working in two steps, locating text regions first and then reading the text within them.
 
 - **`Loading weights: 100%`**
