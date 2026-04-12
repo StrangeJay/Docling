@@ -16,12 +16,12 @@ Overall, this is a hands-on exploration of Docling, what it does, how it behaves
 
 ## Installing Docling
 
-- To get started, I installed [Docling](https://www.docling.ai/) using Python’s package manager, pip, with `pip install docling`. This makes it easy to install and use the CLI directly from the terminal.
+- To get started, I installed [**Docling**](https://www.docling.ai/) using Python’s package manager, pip, with **`pip install docling`**. This makes it easy to install and use the CLI directly from the terminal.
 
 > [!NOTE]
 If you're on Windows, you might see warnings related to symlinks from the Hugging Face cache. These don’t stop the installation from working, but enabling Developer Mode or running as administrator can remove the warnings.
 
-- After installing Docling, I verified that it was set up correctly by checking the installed version from the command line using the command `docling --version`.
+- After installing Docling, I verified that it was set up correctly by checking the installed version from the command line using the command **`docling --version`**.
 
 ![](images/docling-version.png)
 
@@ -32,9 +32,9 @@ If the command is not recognized, it usually means the installation path is not 
 
 ## First Exploration
 
-1. After installing Docling i wasn't sure the exact file to use for my tests, so i started with the proposed [pdf](https://events.linuxfoundation.org/wp-content/uploads/2026/03/sponsor_pytconf26_eu_030526.pdf) for this task.
+1. After installing Docling i wasn't sure the exact file to use for my tests, so i started with the proposed [**pdf**](https://events.linuxfoundation.org/wp-content/uploads/2026/03/sponsor_pytconf26_eu_030526.pdf) for this task.
 
-2. I ran the command `docling https://events.linuxfoundation.org/wp-content/uploads/2026/03/sponsor_pytconf26_eu_030526.pdf` so docling can process the file, this converts the pdf to markdown format, which is the default. If you want to convert to a specific file type, then you add the `--to` flag.
+2. I ran the command **`docling https://events.linuxfoundation.org/wp-content/uploads/2026/03/sponsor_pytconf26_eu_030526.pdf`** so docling can process the file, this converts the pdf to markdown format, which is the default. If you want to convert to a specific file type, then you add the **`--to`** flag.
 
 ![](images/doclin-run-error.png)
 
@@ -48,7 +48,7 @@ This means Docling is using PyTorch as its underlying engine to run machine lear
 This indicates that Docling is running on the CPU rather than a GPU, which is completely fine but typically slower, since GPUs are better optimized for running machine learning workloads.
 
 - **`download_file.py: File exists and is valid`**
-This message shows that Docling checked for required model files, such as `ch_PP-OCRv4_det_infer.pth`, and confirmed they already exist locally; these files are pretrained OCR models that are downloaded during the first run and reused afterward, so there is no need to download them again.
+This message shows that Docling checked for required model files, such as **`ch_PP-OCRv4_det_infer.pth`**, and confirmed they already exist locally; these files are pretrained OCR models that are downloaded during the first run and reused afterward, so there is no need to download them again.
 
 - **`**Using ... rapidocr/models/...`**
 This means Docling is loading OCR models from the local directory, specifically models responsible for detecting where text appears in the document and then recognizing the actual characters, essentially working in two steps, locating text regions first and then reading the text within them.
@@ -63,7 +63,7 @@ This means the OCR system attempted to detect text but found none, which usually
 
 ![](images/4-download-first.png)
 
-I used the command `docling sponsor.pdf` to convert it into Markdown format. Taking a look at the Markdown, I noticed the changes between the original PDF and the Markdown copy.
+I used the command **`docling sponsor.pdf`** to convert it into Markdown format. Taking a look at the Markdown, I noticed the changes between the original PDF and the Markdown copy.
 
 ![](images/5-docling-worked.gif)
 
@@ -79,15 +79,15 @@ The text was displayed perfectly.
 
 ### Checking Out Different Outputs
 
-I wanted to convert the pdf to different file formats next, but i wasn't exactly sure on how to do it, so i used the `docling --help` command to get information on that.
+I wanted to convert the pdf to different file formats next, but i wasn't exactly sure on how to do it, so i used the **`docling --help`** command to get information on that.
 
 ![](images/8-how-to-convert.png)
 
-- **Converting to html:** i used the `docling sponsor.pdf --to html` command to convert the pdf file to html.
+- **Converting to html:** i used the **`docling sponsor.pdf --to html`** command to convert the pdf file to html.
 
 ![](images/9-convert-to-html.png)
 
-- The `html` file was created without any issues. I viewed the file to ensure everything displayed correctly and confirmed there were no problems during the conversion.
+- The **`html`** file was created without any issues. I viewed the file to ensure everything displayed correctly and confirmed there were no problems during the conversion.
 
 ![](images/display-difference-html-and-pdf.png)
 
@@ -110,7 +110,7 @@ I think this happens because Docling is focused on pulling out the content and s
 
 ![](images/12-research-displayed.png)
 
-- I wanted to get rid of the base64 encoded image so i added the `--image-export-mode referenced` tag and converted to html again.
+- I wanted to get rid of the base64 encoded image so i added the **`--image-export-mode referenced`** tag and converted to html again.
 
 ![](images/13-better-image-rendering.png)
 
@@ -126,7 +126,7 @@ One thing that stands out across all the tested documents is that images carry o
 
 For my final test i decided to use a pdf of a harvard brochure, it had images, multiple stylings, tables, and various shapes, making it the perfect document to help me reach a final conclusion.
 
-- At first conversion i noticed warnings like “RapidOCR returned empty result” and “The text detection result is empty.” After further analysis i realised This happened because the page I was processing is mostly made up of images and heavy visual design, not clean, selectable text. From the preview, you can see things like a full-page background image, stylized text, and layered graphics. To us, it looks like normal text, but to the OCR model, it’s closer to an image than structured text.
+- At first conversion i noticed warnings like **“RapidOCR returned empty result”** and **“The text detection result is empty.”** After further analysis i realised This happened because the page I was processing is mostly made up of images and heavy visual design, not clean, selectable text. From the preview, you can see things like a full-page background image, stylized text, and layered graphics. To us, it looks like normal text, but to the OCR model, it’s closer to an image than structured text.
 
 ![](images/14-ocr-issue.png)
 
@@ -169,7 +169,7 @@ In the converted HTML, everything gets forced into a simple top-to-bottom flow. 
 
 ---
 
-For my final test, I tried converting the file to JSON, and my system became unresponsive for a while during the process. It seems like generating the JSON output is more resource-intensive, likely because it’s trying to capture a lot more detailed structure from the document.
+For my final test, I tried converting the file to JSON, and my system became unresponsive for a while during the process. This was also the largest file in the set at 73MB, which likely added to the strain. It seems like generating the JSON output is more resource-intensive, likely because it’s trying to capture a lot more detailed structure from the document.
 
 ![](images/harvard-json-caused-freezing-crashing.png)
 
@@ -208,7 +208,7 @@ Overall, these experiments showed a clear trade-off: Docling does a good job at 
 
 ![](images/test-backend.png)
 
-- **Plain Text Output:** Returned only raw extracted text with no formatting or images, minimal and distraction-free.
+- **Plain Text Output:** Returned only raw extracted text with no formatting or images, minimal and distraction-free. This was also the smallest file, at 28kb.
 
 ![](images/test_txt.png)
 
