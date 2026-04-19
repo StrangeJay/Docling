@@ -18,6 +18,8 @@ Overall, this is a hands-on exploration of Docling, what it does, how it behaves
 
 - To get started, I installed [**Docling**](https://www.docling.ai/) using Python’s package manager, pip, with **`pip install docling`**. This makes it easy to install and use the CLI directly from the terminal.
 
+![](images/docling-install.png)
+
 > [!NOTE]
 If you're on Windows, you might see warnings related to symlinks from the Hugging Face cache. These don’t stop the installation from working, but enabling Developer Mode or running as administrator can remove the warnings.
 
